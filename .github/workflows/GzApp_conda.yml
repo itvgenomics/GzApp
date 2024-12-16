@@ -1,0 +1,45 @@
+name: GzApp Testing with Conda Environment
+
+on: [push, pull_request]
+
+jobs:
+  build-linux:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.10', '3.11', '3.12']
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Conda
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+          auto-update-conda: true
+          auto-activate-base: false
+
+      - name: Configure Conda channels
+        run: |
+          conda config --add channels conda-forge
+          conda config --add channels defaults
+
+      - name: Remove existing environment if it exists
+        run: |
+          conda env remove -n gzapp-env || echo "Environment does not exist, proceeding with creation"
+
+      - name: Create Conda Environment
+        run: |
+          conda env create -f environment.yml -n gzapp-env
+
+      - name: Activate environment and lint with flake8
+        shell: bash -l {0}
+        run: |
+          conda activate gzapp-env
+          flake8 . --count --max-line-length=150 --statistics
+
+      - name: Activate environment and run tests with pytest
+        shell: bash -l {0}
+        run: |
+          conda activate gzapp-env
+          pytest tests/
