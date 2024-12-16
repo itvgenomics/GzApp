@@ -1,4 +1,4 @@
-[![Test GzApp Script](https://github.com/luanrabelo/GzApp/actions/workflows/GzApp_script.yml/badge.svg)](https://github.com/luanrabelo/GzApp/actions/workflows/GzApp_script.yml) [![GzApp Testing with Conda](https://github.com/luanrabelo/GzApp/actions/workflows/GzApp_conda.yml/badge.svg)](https://github.com/luanrabelo/GzApp/actions/workflows/GzApp_conda.yml) [![Pylint](https://github.com/luanrabelo/GzApp/actions/workflows/GzApp_pylint.yml/badge.svg)](https://github.com/luanrabelo/GzApp/actions/workflows/GzApp_pylint.yml)
+[![Test GzApp Script](https://github.com/itvgenomics/GzApp/actions/workflows/GzApp_script.yml/badge.svg)](https://github.com/itvgenomics/GzApp/actions/workflows/GzApp_script.yml) [![GzApp Testing with Conda](https://github.com/itvgenomics/GzApp/actions/workflows/GzApp_conda.yml/badge.svg)](https://github.com/itvgenomics/GzApp/actions/workflows/GzApp_conda.yml) [![Pylint](https://github.com/itvgenomics/GzApp/actions/workflows/GzApp_pylint.yml/badge.svg)](https://github.com/itvgenomics/GzApp/actions/workflows/GzApp_pylint.yml)
 
 # GzApp: FASTA, FASTQ, SAM, and BAM Compression Tool
 
