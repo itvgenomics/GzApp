@@ -1,0 +1,26 @@
+#PBS -l nodes=1:ppn=1
+#PBS -N foldersMapUser
+#PBS -o job_run-folders.log
+#PBS -e job_run-folders.err
+
+
+CORES=$[ `cat $PBS_NODEFILE | wc -l` ]
+NODES=$[ `uniq $PBS_NODEFILE | wc -l` ]
+
+printf "Inico: `date`\n";
+TBEGIN=`echo "print time();" | perl`
+
+printf "\n"
+printf "> Executando job_code7\n";
+printf "> Rodando em $CORES nucleos, em $NODES nos\n"
+cd $PBS_O_WORKDIR
+
+python GzApp.py --folder /path/to/folder --log /path/to/log --fasta --fastq --sam --bam 
+
+TEND=`echo "print time();" | perl`
+
+printf "\n"/
+printf "Fim: `date`\n";
+printf "Tempo decorrido (s): `expr $TEND - $TBEGIN`\n";
+printf "Tempo decorrido (min): `expr $(( ($TEND - $TBEGIN)/60 ))`\n";
+echo "TERMINADO"

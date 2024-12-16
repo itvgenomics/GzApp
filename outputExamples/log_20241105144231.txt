@@ -1,0 +1,3 @@
+Space Before Compression: 3.60 GB
+Space After Compression: 818.95 MB
+Compression Efficiency: 77.76%
